@@ -1,0 +1,40 @@
+<%- include('includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/vehicle.css">
+</head>
+
+<body>
+   <%- include('includes/navigation.ejs') %>
+            <main>
+                <% if (vehicles.length > 0) { %>
+                    <div class="grid">
+                        <% for (let vehicle of vehicles) { %>
+                            <article class="card vehicle-item">
+                                <header class="card__header">
+                                    <h1 class="vehicle__title">
+                                        <%= vehicle.make %>
+                                    </h1>
+                                </header>
+                                <div class="card__image">
+                                    <img src="<%= vehicle.imagePath %>" alt="<%= vehicle.make %>">
+                                </div>
+                                <div class="card__content">
+                                    <p class="vehicle__description">
+                                        <strong>Year </strong><%= vehicle.year %>
+                                    </p>
+                                    <h2 class="vehicle__price">$
+                                        <strong>Price </strong><%= vehicle.price %>
+                                    </h2>
+                                    <p class="vehicle__description">
+                                        <strong>Model </strong><%= vehicle.model %>
+                                    </p>
+                                </div>
+                            </article>
+                            <% } %>
+                    </div>
+                    <% } else { %>
+                        <h3>Opps, you have not upload CSV files yet!</h3>
+                        <a href="/admin/add-file" ><strong>Upload file</strong></a>
+                        <% } %>
+            </main>
+    <%- include('includes/end.ejs') %>

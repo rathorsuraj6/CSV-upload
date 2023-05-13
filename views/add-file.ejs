@@ -1,0 +1,21 @@
+<%- include('includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/vehicle.css">
+</head>
+
+<body>
+   <%- include('includes/navigation.ejs') %>
+    <main>
+        <form class="vehicle-form" action="/admin/processFile" method="POST" enctype="multipart/form-data">
+            <div class="form-control">
+                <label for="csv_name"><strong>Supplier file name</strong></label>
+                <input type="text" name="csv_name" id="csv_name" title="File name" placeholder="Enter a name" required>
+            </div>
+            <div class="form-control">
+                <label for="title"></label>
+                <input type="file" name="file" id="file" accept=".csv" title="Choose csv source" required>
+            </div>
+            <button class="btn" type="submit" title="Upload information">Upload File</button>
+        </form>
+    </main>
+<%- include('includes/end.ejs') %>
